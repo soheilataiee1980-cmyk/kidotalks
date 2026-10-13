@@ -29,3 +29,8 @@ I am a complete beginner. After each task explain in simple Persian: what you ch
 - Do NOT redesign or "improve" anything. Copy the prototype's CSS (the style block) verbatim into the project CSS and keep its class names. Copy inline SVGs and markup structure verbatim.
 - After building each page, compare it with the prototype: open legacy/index.html and the new page in Playwright at 390px and 1280px wide, take screenshots of both, and fix any visual difference before saying the task is done. Save comparison screenshots in a folder named visual-checks/.
 - Behavior may be re-implemented in React, but visuals must stay identical.
+
+## Book scan licensing rule
+- Book page scans in legacy/assets/book must never be shown on the site until the owner confirms they have the publisher's license.
+- Wherever the prototype shows book scan pages, preserve the same UI but guard the scan section with BOOK_SCANS_ENABLED, default false. With the flag off, show a short Persian coming-soon message.
+- Do not copy scans into public/. Enabling the feature flag requires the owner's explicit license confirmation.

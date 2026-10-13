@@ -1,63 +1,54 @@
 "use client";
-
 import { useEffect, useState, type ReactNode } from "react";
 import BrandMark from "./brand-mark";
 import SiteFooter from "./site-footer";
-
+import { BooksContent, UnitsContent } from "./catalog-content";
+import { LearningContext, initialProgress, readProgress, progressKey, type Tab, type UnitSummary } from "./learning-state";
 const tabs = [
-  ["home", "خانه", "🏠"],
-  ["books", "کتاب‌ها", "📚"],
-  ["lessons", "درس‌ها", "📖"],
-  ["practice", "تمرین‌ها", "🎮"],
-  ["videos", "ویدیوها", "🎬"],
-  ["progress", "پیشرفت", "⭐"],
-  ["parents", "والدین", "👨‍👩‍👧"],
+  ["home", "خانه", "🏠"], ["books", "کتاب‌ها", "📚"], ["lessons", "درس‌ها", "📖"],
+  ["practice", "تمرین‌ها", "🎮"], ["videos", "ویدیوها", "🎬"], ["progress", "پیشرفت", "⭐"], ["parents", "والدین", "👨‍👩‍👧"],
 ] as const;
-
-type Tab = (typeof tabs)[number][0] | "profiles";
-
 function readTab(): Tab {
   const value = new URLSearchParams(window.location.hash.slice(1)).get("tab");
-  return value === "profiles" || tabs.some(([key]) => key === value)
-    ? (value as Tab)
-    : "home";
+  return value === "profiles" || value === "book" || value === "units" || tabs.some(([key]) => key === value) ? value as Tab : "home";
 }
-
-export default function SiteShell({ children }: { children: ReactNode }) {
+export default function SiteShell({ children, units }: { children: ReactNode; units: UnitSummary[] }) {
+  const [today, setToday] = useState("");
   const [tab, setTab] = useState<Tab>("home");
-
+  const [progress, setProgress] = useState(initialProgress);
   useEffect(() => {
     const sync = () => {
       const next = readTab();
-      setTab(next);
-      document.body.dataset.theme = next;
+      setToday(new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Tehran" }).format(new Date()));
+      const stored = readProgress();
+      const unit = Number(new URLSearchParams(window.location.hash.slice(1)).get("u"));
+      if (Number.isInteger(unit) && unit >= 1 && unit <= 15) stored.unit = unit;
+      setTab(next); setProgress({ ...stored });
+      document.body.dataset.theme = next === "book" || next === "units" ? "books" : next;
+      try { localStorage.setItem(progressKey, JSON.stringify(stored)); } catch { /* Browsing still works without storage. */ }
     };
     sync();
     window.addEventListener("hashchange", sync);
-    return () => window.removeEventListener("hashchange", sync);
+    window.addEventListener("storage", sync);
+    return () => { window.removeEventListener("hashchange", sync); window.removeEventListener("storage", sync); };
   }, []);
-
-  function go(next: Tab) {
-    window.location.hash = `tab=${next}`;
+  function go(next: Tab, unit?: number) {
+    window.location.hash = `tab=${next}${unit ? `&u=${unit}` : ""}`;
     window.scrollTo(0, 0);
   }
-
-  return (
-    <div id="app">
-      <nav>
-        <button className="brand" onClick={() => go("home")} aria-label="Kidotalks — خانه"><BrandMark /></button>
-        {tabs.map(([key, label, icon]) => (
-          <button key={key} className={key === "parents" ? `tab parent-tab ${tab === key ? "on" : ""}` : `tab${tab === key ? " on" : ""}`} onClick={() => go(key)}>{`${icon} ${label}`}</button>
-        ))}
-        <button className="profile-badge" onClick={() => go("profiles")} aria-label="تغییر زبان‌آموز">🦊 زبان‌آموز من</button>
-      </nav>
-      <header />
-      {tab === "home" ? children : (
-        <main className="in">
-          <p role="status">این بخش در حال آماده‌سازی است.</p>
-        </main>
-      )}
-      <SiteFooter />
-    </div>
-  );
+  return <LearningContext.Provider value={{ units, progress, go, today }}><div id="app">
+    <nav>
+      <button className="brand" onClick={() => go("home")} aria-label="Kidotalks — خانه"><BrandMark /></button>
+      {tabs.map(([key, label, icon]) => {
+        const active = tab === key || (key === "books" && (tab === "book" || tab === "units"));
+        return <button key={key} className={key === "parents" ? `tab parent-tab ${active ? "on" : ""}` : `tab${active ? " on" : ""}`} onClick={() => go(key)}>{`${icon} ${label}`}</button>;
+      })}
+      <button className="profile-badge" onClick={() => go("profiles")} aria-label="تغییر زبان‌آموز">🦊 زبان‌آموز من</button>
+    </nav>
+    <header />
+    <main className="in" tabIndex={-1}>
+      {tab === "home" ? children : tab === "books" ? <BooksContent /> : tab === "book" || tab === "units" ? <UnitsContent /> : <p role="status">این بخش در حال آماده‌سازی است.</p>}
+    </main>
+    <SiteFooter />
+  </div></LearningContext.Provider>;
 }

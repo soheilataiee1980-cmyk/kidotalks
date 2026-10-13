@@ -1,0 +1,4 @@
+// Verbatim static SVG/markup from prototype doodles(); no dynamic HTML.
+export default function HomeArt() {
+  return <div dangerouslySetInnerHTML={{ __html: "<div class=\"doodles\" aria-hidden=\"true\"><span class=\"glass-orb orb-one\"></span><span class=\"glass-orb orb-two\"></span><span class=\"doodle d-letter en\">Aa</span><svg class=\"doodle d-star\" viewBox=\"0 0 64 64\"><path d=\"m32 4 8 18 20 2-15 14 5 21-18-10-18 10 5-21L4 24l20-2Z\" fill=\"#ffcf65\" stroke=\"#b88a31\" stroke-width=\"2\"/></svg><svg class=\"doodle d-pencil\" viewBox=\"0 0 64 64\"><g transform=\"rotate(30 32 32)\"><rect x=\"23\" y=\"7\" width=\"18\" height=\"39\" rx=\"4\" fill=\"#9cd9c5\" stroke=\"#488c77\" stroke-width=\"2\"/><path d=\"m23 46 9 14 9-14Z\" fill=\"#ffdfb1\" stroke=\"#488c77\" stroke-width=\"2\"/><path d=\"M23 17h18\" stroke=\"#488c77\" stroke-width=\"2\"/></g></svg><span class=\"doodle d-hello en\">hello!</span></div>" }} style={{ display: "contents" }} />;
+}
