@@ -1,0 +1,9 @@
+/* New footer requested by the owner; the prototype has no footer. */
+.site-footer { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; align-items: start; margin-top: 40px; padding: 24px; border: 1px solid var(--page-border, #ddcbed); border-radius: 24px; background: var(--page-soft, #f8f3ff); color: var(--page-ink, #4b2c78); box-shadow: 0 5px 22px var(--page-shadow, #6b43a518); }
+.footer-logo { display: inline-flex; padding-block: 10px; }
+.footer-logo svg { display: block; width: 164px; max-width: 100%; height: auto; }
+.site-footer h2 { font-size: 15px; margin: 10px 0; }
+.site-footer p { font-size: 13px; line-height: 1.9; margin: 8px 0; }
+.footer-links summary { font-weight: 700; }
+.footer-trust { padding: 0 12px; border: 1px dashed var(--page-border, #ddcbed); border-radius: 16px; }
+@media (max-width: 640px) { .site-footer { grid-template-columns: 1fr; gap: 16px; padding: 20px; } .footer-logo svg { width: 142px; } }

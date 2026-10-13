@@ -1,6 +1,21 @@
+/* eslint-disable @next/next/no-css-tags -- Serve the verbatim prototype CSS without loader transformations. */
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import "./globals.css";
+import "@fontsource/vazirmatn/arabic-400.css";
+import "@fontsource/vazirmatn/arabic-700.css";
+import "@fontsource/vazirmatn/arabic-800.css";
+import "@fontsource/vazirmatn/arabic-900.css";
+import "@fontsource/fredoka/latin-400.css";
+import "@fontsource/fredoka/latin-700.css";
+import "@fontsource/vazirmatn/arabic-500.css";
+import "@fontsource/vazirmatn/arabic-600.css";
+import "@fontsource/fredoka/latin-500.css";
+import "@fontsource/fredoka/latin-600.css";
+import SiteShell from "./site-shell";
+
+
+import "./footer.css";
+import "./existing-home.css";
 
 export const metadata: Metadata = {
   title: "Kidotalks | یادگیری انگلیسی با بازی و گفت‌وگو",
@@ -17,8 +32,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="fa" dir="rtl">
-      <body>{children}</body>
+    <html lang="fa" dir="rtl" data-theme="light">
+      <head><link rel="stylesheet" href="/prototype.css" /></head>
+      <body data-theme="home"><SiteShell>{children}</SiteShell></body>
     </html>
   );
 }

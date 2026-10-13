@@ -23,3 +23,9 @@ Background #FFF8E7, ink #2B2B3A, card #FFFFFF, blue #4DA3FF, yellow #FFD54F, min
 
 ## How to report
 I am a complete beginner. After each task explain in simple Persian: what you changed, which files, and exactly how I can test it in the browser.
+
+## Visual fidelity rule
+- The new site must look IDENTICAL to the prototype in legacy/index.html: same colors, fonts, spacing, borders, shadows, buttons, mascot (fox), logo, SVG art, emoji, icons, dark mode, mobile layout.
+- Do NOT redesign or "improve" anything. Copy the prototype's CSS (the style block) verbatim into the project CSS and keep its class names. Copy inline SVGs and markup structure verbatim.
+- After building each page, compare it with the prototype: open legacy/index.html and the new page in Playwright at 390px and 1280px wide, take screenshots of both, and fix any visual difference before saying the task is done. Save comparison screenshots in a folder named visual-checks/.
+- Behavior may be re-implemented in React, but visuals must stay identical.

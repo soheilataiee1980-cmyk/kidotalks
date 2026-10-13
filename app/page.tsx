@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 
 const unitNumbers = Array.from({ length: 15 }, (_, index) => index + 1);
 
@@ -22,21 +22,8 @@ function SparkleIcon() {
 
 export default function Home() {
   return (
-    <main>
+    <main className="existing-home">
       <a className="skip-link" href="#main-content">رفتن به محتوای اصلی</a>
-
-      <header className="site-header">
-        <a className="brand" href="#top" aria-label="کیدوتاکس، صفحهٔ اصلی">
-          <Image src="/kidotalk-logo.svg" alt="" width={52} height={46} priority />
-          <span>kido<span>talks</span></span>
-        </a>
-        <nav className="main-nav" aria-label="ناوبری اصلی">
-          <a href="#book">کتاب‌ها</a>
-          <a href="#method">روش یادگیری</a>
-          <a href="#parents">برای والدین</a>
-        </nav>
-        <a className="header-action" href="#book">شروع یادگیری <span aria-hidden="true">←</span></a>
-      </header>
 
       <div id="top" className="page-shell">
         <section className="hero" id="main-content" aria-labelledby="hero-title">
@@ -132,12 +119,6 @@ export default function Home() {
           <div><span className="section-kicker">آماده‌ای؟</span><h2>با یک درس کوتاه شروع کن.</h2><p>هر پیشرفت بزرگی از یک قدم کوچک شروع می‌شود.</p></div>
           <a className="button button-primary" href="#book">رفتن به کتاب <span aria-hidden="true">←</span></a>
         </section>
-
-        <footer className="site-footer">
-          <a className="brand footer-brand" href="#top"><Image src="/kidotalk-logo.svg" alt="" width={38} height={34} /><span>kido<span>talks</span></span></a>
-          <p>یادگیری انگلیسی، با قدم‌های کوچک و لبخندهای بزرگ.</p>
-          <span className="footer-status"><i /> نسخهٔ آموزشی در حال توسعه</span>
-        </footer>
       </div>
     </main>
   );

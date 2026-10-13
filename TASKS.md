@@ -1,7 +1,8 @@
 # Tasks (do in order, one at a time, tick when finished)
+Every UI task is done only when it passes the visual fidelity rule.
 
-- [ ] T1 Fonts and layout: install @fontsource/vazirmatn and @fontsource/fredoka, set html lang=fa dir=rtl, metadata title, global theme colors from AGENTS.md.
-- [ ] T2 Header and navigation (logo, menu: Home, Lessons, Practice, Books, Videos, Progress, Parents) and footer. Copy kidotalk-logo.svg from legacy into public/ (logos only).
+- [x] T1 Fonts and layout: install @fontsource/vazirmatn and @fontsource/fredoka, set html lang=fa dir=rtl, metadata title, global theme colors from AGENTS.md.
+- [x] T2 Header and navigation (logo, menu: Home, Lessons, Practice, Books, Videos, Progress, Parents) and footer. Copy kidotalk-logo.svg from legacy into public/ (logos only).
 - [ ] T3 Convert the course data (15 units: words, grammar, models, phonics, reading, writing) from legacy/index.html into typed data files under data/. Do not build pages yet.
 - [ ] T4 Pages: home, units list, and lesson page with its 7 sections (new words, sentences, more words, letters and sounds, reading, speaking and writing, extra).
 - [ ] T5 Exercise components: multiple choice, matching, memory, ordering, spelling. Stars and mistakes tracking (local state first).
