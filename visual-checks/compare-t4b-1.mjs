@@ -86,7 +86,7 @@ try {
   await fresh.getByRole('button',{name:'حالا تمرین کنیم',exact:true}).click();
   await fresh.getByText('این بخش در حال آماده‌سازی است.',{exact:true}).waitFor();
   await fresh.getByRole('button',{name:'برگشت ›',exact:true}).click();
-  await fresh.locator('.lesson-tabs button').nth(3).click();
+  await fresh.locator('.lesson-tabs button').nth(4).click();
   assert.equal(await fresh.locator('.single-lesson').getAttribute('data-lesson'),'1');
   await fresh.locator('.learning-menu summary').click();await fresh.locator('.menu-unit').nth(14).click();
   await fresh.getByText('Unit 15 · Let\'s play ball!',{exact:true}).waitFor();await fresh.reload();

@@ -4,6 +4,7 @@ import type { BilingualText, CourseUnit, Word } from "../data/types";
 export interface FirstLessonUnit extends Pick<CourseUnit, "id" | "title" | "icon" | "sections"> {
   words: Word[];
   moreWords: Word[];
+  phonics: CourseUnit["phonics"];
   activityCount: number;
   sentenceLesson: { tips: string[]; models: BilingualText[] };
 }
