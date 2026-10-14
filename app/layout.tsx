@@ -35,7 +35,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fa" dir="rtl" data-theme="light">
       <head><link rel="stylesheet" href="/prototype.css" /></head>
-      <body data-theme="home"><SiteShell units={courseUnits.map(({ id, title, icon }) => ({ id, title, icon }))} firstLessons={courseUnits.map(({ id, title, icon, sections, words, activities, grammar, modelSets, phonics }) => ({ id, title, icon, sections, phonics, words: words.filter(w => w.section === 1), moreWords: words.filter(w => w.section === 3), activityCount: activities.filter(a => a.key !== "cards").length, sentenceLesson: { tips: grammar.teachingTips, models: modelSets.find(set => set.source === (id === 1 ? "teacherModels()" : `COURSE[${id}].models`))?.sentences ?? [] } }))}>{children}</SiteShell></body>
+      <body data-theme="home"><SiteShell units={courseUnits.map(({ id, title, icon }) => ({ id, title, icon }))} firstLessons={courseUnits.map(({ id, title, icon, sections, words, activities, grammar, modelSets, phonics, reading }) => ({ id, title, icon, sections, phonics, reading, words: words.filter(w => w.section === 1), moreWords: words.filter(w => w.section === 3), activityCount: activities.filter(a => a.key !== "cards").length, sentenceLesson: { tips: grammar.teachingTips, models: modelSets.find(set => set.source === (id === 1 ? "teacherModels()" : `COURSE[${id}].models`))?.sentences ?? [] } }))}>{children}</SiteShell></body>
     </html>
   );
 }

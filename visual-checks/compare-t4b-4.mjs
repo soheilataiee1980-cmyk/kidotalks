@@ -84,7 +84,7 @@ try {
   await fresh.locator('.lesson-pagination button').first().click();await fresh.locator('.single-lesson[data-lesson="3"]').waitFor();
   assert.ok(await fresh.evaluate(()=>window.testCancels)>cancellations);
   await fresh.goBack();await fresh.locator('.single-lesson[data-lesson="4"]').waitFor();
-  await fresh.locator('.lesson-pagination button').last().click();await fresh.getByText('این بخش در حال آماده‌سازی است.',{exact:true}).waitFor();assert.equal(await fresh.locator('.single-lesson').getAttribute('data-lesson'),'4');
+  await fresh.locator('.lesson-tabs button').nth(5).click();await fresh.getByText('این بخش در حال آماده‌سازی است.',{exact:true}).waitFor();assert.equal(await fresh.locator('.single-lesson').getAttribute('data-lesson'),'4');
   for(const name of ['حالا تمرین کنیم','ویدیوی همین درس','همهٔ بازی‌ها']) {
    await fresh.getByRole('button',{name,exact:true}).click();await fresh.getByText('این بخش در حال آماده‌سازی است.',{exact:true}).waitFor();
   }

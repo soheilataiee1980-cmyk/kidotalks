@@ -5,6 +5,7 @@ export interface FirstLessonUnit extends Pick<CourseUnit, "id" | "title" | "icon
   words: Word[];
   moreWords: Word[];
   phonics: CourseUnit["phonics"];
+  reading: CourseUnit["reading"];
   activityCount: number;
   sentenceLesson: { tips: string[]; models: BilingualText[] };
 }
