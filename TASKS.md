@@ -18,7 +18,7 @@ Every UI task is done only when it passes the visual fidelity rule.
 - [ ] T5 Exercise components: multiple choice, matching, memory, ordering, spelling. Stars and mistakes tracking (local state first).
   - [x] T5a Multiple choice exercise component: reusable client component rendering `Question` items (scene, hint, options, answer), immediate feedback, progress, scoring stars, retry/reset, and honest unavailable state. Wired into ReadingLesson for all 15 units' reading questions; verified lint/build.
   - [x] T5a bugfix: restored corrupted Persian labels/buttons in `reading-lesson.tsx` from `lessonHtml.teaching5` data, removed an invented unit 3 note, fixed fox/result text overlap and RTL spacing in `multiple-choice-exercise.tsx`, verified units 1, 3, 7, 13 and 15 plus light/dark and 390px.
-  - [ ] T5b Matching component: pair pictures and Persian meanings/words for every unit with valid bank or word data, retry/reset, scoring.
+  - [x] T5b Matching component: picture-to-word matching using each unit’s existing image/SVG and word bank, with Persian meanings in accessible labels; grouped in fours with wrong-answer feedback, speech controls, first-try scoring, stars, unit selection and retry. All 15 units (161 words) have usable art. Playwright checked wrong/correct answers, score, restart, audio, unit navigation, no overlap, T4b.1–T4b.7 and T5a. Visual comparison: `visual-checks/t5b/README.md`.
   - [ ] T5c Memory game: card matching with reveal/reset and completion feedback.
   - [ ] T5d Ordering/build-a-sentence component using shuffled tokens and left-to-right slots.
   - [ ] T5e Spelling input component with answer checking and hint.

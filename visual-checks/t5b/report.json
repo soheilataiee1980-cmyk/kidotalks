@@ -1,0 +1,36 @@
+{
+  "visuals": [
+    {
+      "width": 390,
+      "theme": "light",
+      "differingPixels": 0,
+      "totalPixels": 288408,
+      "maxChannelDelta": 0
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "differingPixels": 8,
+      "totalPixels": 288408,
+      "maxChannelDelta": 4
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "differingPixels": 0,
+      "totalPixels": 372480,
+      "maxChannelDelta": 2
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "differingPixels": 0,
+      "totalPixels": 372480,
+      "maxChannelDelta": 2
+    }
+  ],
+  "interactions": "PASS",
+  "unitWordBanks": 15,
+  "lessonRegression": "T4b-1..7 and T5a route checks passed",
+  "pageErrors": []
+}
