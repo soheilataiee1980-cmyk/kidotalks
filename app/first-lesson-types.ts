@@ -1,7 +1,8 @@
-import type { CourseUnit, Word } from "../data/types";
+import type { BilingualText, CourseUnit, Word } from "../data/types";
 
-/** Only section-one content crosses the server/client boundary in T4b.1. */
+/** Only implemented lesson content crosses the server/client boundary. */
 export interface FirstLessonUnit extends Pick<CourseUnit, "id" | "title" | "icon" | "sections"> {
   words: Word[];
   activityCount: number;
+  sentenceLesson: { tips: string[]; models: BilingualText[] };
 }

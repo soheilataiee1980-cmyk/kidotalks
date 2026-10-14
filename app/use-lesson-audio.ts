@@ -1,15 +1,18 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-export function useLessonAudio() {
+export function useLessonAudio(section = 1) {
   const [muted, setMuted] = useState(false);
   const [speed, setSpeed] = useState(1);
   const [lastSpoken, setLastSpoken] = useState("");
-  const [status, setStatus] = useState("");
+  const [audioStatus, setAudioStatus] = useState({ section, text: "" });
+  const status = audioStatus.section === section ? audioStatus.text : "";
+  function setStatus(text: string) { setAudioStatus({ section, text }); }
   const serial = useRef(0);
   const recording = useRef<HTMLAudioElement | null>(null);
   const attachRecording = useCallback((element: HTMLAudioElement | null) => { recording.current = element; }, []);
   function stop() {
+    setStatus("");
     serial.current++;
     recording.current?.pause();
     window.speechSynthesis?.cancel();
@@ -17,7 +20,7 @@ export function useLessonAudio() {
   useEffect(() => () => {
     serial.current++;
     window.speechSynthesis?.cancel();
-  }, []);
+  }, [section]);
   function speak(text: string, rate = speed) {
     setLastSpoken(text);
     stop();

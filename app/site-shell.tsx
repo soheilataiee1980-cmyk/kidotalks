@@ -17,10 +17,12 @@ function readTab(): Tab {
 export default function SiteShell({ children, units, firstLessons }: { children: ReactNode; units: UnitSummary[]; firstLessons: FirstLessonUnit[] }) {
   const [today, setToday] = useState("");
   const [tab, setTab] = useState<Tab>("home");
+  const [lesson, setLesson] = useState<1 | 2>(1);
   const [progress, setProgress] = useState(initialProgress);
   useEffect(() => {
     const sync = () => {
       const next = readTab();
+      setLesson(new URLSearchParams(window.location.hash.slice(1)).get("lesson") === "2" ? 2 : 1);
       setToday(new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Tehran" }).format(new Date()));
       const stored = readProgress();
       const unit = Number(new URLSearchParams(window.location.hash.slice(1)).get("u"));
@@ -47,7 +49,7 @@ export default function SiteShell({ children, units, firstLessons }: { children:
       })}
       <button className="profile-badge" onClick={() => go("profiles")} aria-label="تغییر زبان‌آموز">🦊 زبان‌آموز من</button>
     </nav>
-    {tab === "lessons" ? <FirstLesson key={progress.unit} unit={firstLessons[progress.unit - 1]} units={firstLessons} /> : <><header />
+    {tab === "lessons" ? <FirstLesson key={progress.unit} unit={firstLessons[progress.unit - 1]} units={firstLessons} lesson={lesson} /> : <><header />
     <main className="in" tabIndex={-1}>
       {tab === "home" ? children : tab === "books" ? <BooksContent /> : tab === "book" || tab === "units" ? <UnitsContent /> : <p role="status">این بخش در حال آماده‌سازی است.</p>}
     </main></>}

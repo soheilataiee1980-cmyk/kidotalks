@@ -1,0 +1,290 @@
+[
+  {
+    "name": "unit-1",
+    "width": 390,
+    "theme": "light",
+    "prototypeHeight": 2530,
+    "newHeight": 2530,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "unit-2",
+    "width": 390,
+    "theme": "light",
+    "prototypeHeight": 2594,
+    "newHeight": 2594,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "unit-3",
+    "width": 390,
+    "theme": "light",
+    "prototypeHeight": 2530,
+    "newHeight": 2530,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "unit-4",
+    "width": 390,
+    "theme": "light",
+    "prototypeHeight": 2594,
+    "newHeight": 2594,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "unit-13",
+    "width": 390,
+    "theme": "light",
+    "prototypeHeight": 2594,
+    "newHeight": 2594,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "unit-15",
+    "width": 390,
+    "theme": "light",
+    "prototypeHeight": 2881,
+    "newHeight": 2881,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "menu",
+    "width": 390,
+    "theme": "light",
+    "prototypeHeight": 5197,
+    "newHeight": 5197,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "flashcard",
+    "width": 390,
+    "theme": "light",
+    "prototypeHeight": 1099,
+    "newHeight": 1099,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "unit-1",
+    "width": 390,
+    "theme": "dark",
+    "prototypeHeight": 2530,
+    "newHeight": 2530,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "unit-2",
+    "width": 390,
+    "theme": "dark",
+    "prototypeHeight": 2594,
+    "newHeight": 2594,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "unit-3",
+    "width": 390,
+    "theme": "dark",
+    "prototypeHeight": 2530,
+    "newHeight": 2530,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "unit-4",
+    "width": 390,
+    "theme": "dark",
+    "prototypeHeight": 2594,
+    "newHeight": 2594,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "unit-13",
+    "width": 390,
+    "theme": "dark",
+    "prototypeHeight": 2594,
+    "newHeight": 2594,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "unit-15",
+    "width": 390,
+    "theme": "dark",
+    "prototypeHeight": 2881,
+    "newHeight": 2881,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "menu",
+    "width": 390,
+    "theme": "dark",
+    "prototypeHeight": 5197,
+    "newHeight": 5197,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "flashcard",
+    "width": 390,
+    "theme": "dark",
+    "prototypeHeight": 1099,
+    "newHeight": 1099,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "unit-1",
+    "width": 1280,
+    "theme": "light",
+    "prototypeHeight": 1763,
+    "newHeight": 1763,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "unit-2",
+    "width": 1280,
+    "theme": "light",
+    "prototypeHeight": 1763,
+    "newHeight": 1763,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "unit-3",
+    "width": 1280,
+    "theme": "light",
+    "prototypeHeight": 1763,
+    "newHeight": 1763,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "unit-4",
+    "width": 1280,
+    "theme": "light",
+    "prototypeHeight": 1763,
+    "newHeight": 1763,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "unit-13",
+    "width": 1280,
+    "theme": "light",
+    "prototypeHeight": 1763,
+    "newHeight": 1763,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "unit-15",
+    "width": 1280,
+    "theme": "light",
+    "prototypeHeight": 2050,
+    "newHeight": 2050,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "menu",
+    "width": 1280,
+    "theme": "light",
+    "prototypeHeight": 2899,
+    "newHeight": 2899,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "flashcard",
+    "width": 1280,
+    "theme": "light",
+    "prototypeHeight": 952,
+    "newHeight": 952,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "unit-1",
+    "width": 1280,
+    "theme": "dark",
+    "prototypeHeight": 1763,
+    "newHeight": 1763,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "unit-2",
+    "width": 1280,
+    "theme": "dark",
+    "prototypeHeight": 1763,
+    "newHeight": 1763,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "unit-3",
+    "width": 1280,
+    "theme": "dark",
+    "prototypeHeight": 1763,
+    "newHeight": 1763,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "unit-4",
+    "width": 1280,
+    "theme": "dark",
+    "prototypeHeight": 1763,
+    "newHeight": 1763,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "unit-13",
+    "width": 1280,
+    "theme": "dark",
+    "prototypeHeight": 1763,
+    "newHeight": 1763,
+    "differentPixels": 30,
+    "maxDelta": 2
+  },
+  {
+    "name": "unit-15",
+    "width": 1280,
+    "theme": "dark",
+    "prototypeHeight": 2050,
+    "newHeight": 2050,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "menu",
+    "width": 1280,
+    "theme": "dark",
+    "prototypeHeight": 2899,
+    "newHeight": 2899,
+    "differentPixels": 0,
+    "maxDelta": 0
+  },
+  {
+    "name": "flashcard",
+    "width": 1280,
+    "theme": "dark",
+    "prototypeHeight": 952,
+    "newHeight": 952,
+    "differentPixels": 0,
+    "maxDelta": 0
+  }
+]
