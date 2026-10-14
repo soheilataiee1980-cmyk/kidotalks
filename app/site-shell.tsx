@@ -2,6 +2,8 @@
 import { useEffect, useState, type ReactNode } from "react";
 import BrandMark from "./brand-mark";
 import SiteFooter from "./site-footer";
+import FirstLesson from "./first-lesson";
+import type { FirstLessonUnit } from "./first-lesson-types";
 import { BooksContent, UnitsContent } from "./catalog-content";
 import { LearningContext, initialProgress, readProgress, progressKey, type Tab, type UnitSummary } from "./learning-state";
 const tabs = [
@@ -12,7 +14,7 @@ function readTab(): Tab {
   const value = new URLSearchParams(window.location.hash.slice(1)).get("tab");
   return value === "profiles" || value === "book" || value === "units" || tabs.some(([key]) => key === value) ? value as Tab : "home";
 }
-export default function SiteShell({ children, units }: { children: ReactNode; units: UnitSummary[] }) {
+export default function SiteShell({ children, units, firstLessons }: { children: ReactNode; units: UnitSummary[]; firstLessons: FirstLessonUnit[] }) {
   const [today, setToday] = useState("");
   const [tab, setTab] = useState<Tab>("home");
   const [progress, setProgress] = useState(initialProgress);
@@ -45,10 +47,10 @@ export default function SiteShell({ children, units }: { children: ReactNode; un
       })}
       <button className="profile-badge" onClick={() => go("profiles")} aria-label="تغییر زبان‌آموز">🦊 زبان‌آموز من</button>
     </nav>
-    <header />
+    {tab === "lessons" ? <FirstLesson key={progress.unit} unit={firstLessons[progress.unit - 1]} units={firstLessons} /> : <><header />
     <main className="in" tabIndex={-1}>
       {tab === "home" ? children : tab === "books" ? <BooksContent /> : tab === "book" || tab === "units" ? <UnitsContent /> : <p role="status">این بخش در حال آماده‌سازی است.</p>}
-    </main>
+    </main></>}
     <SiteFooter />
   </div></LearningContext.Provider>;
 }

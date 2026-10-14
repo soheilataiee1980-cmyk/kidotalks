@@ -35,7 +35,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fa" dir="rtl" data-theme="light">
       <head><link rel="stylesheet" href="/prototype.css" /></head>
-      <body data-theme="home"><SiteShell units={courseUnits.map(({ id, title, icon }) => ({ id, title, icon }))}>{children}</SiteShell></body>
+      <body data-theme="home"><SiteShell units={courseUnits.map(({ id, title, icon }) => ({ id, title, icon }))} firstLessons={courseUnits.map(({ id, title, icon, sections, words, activities }) => ({ id, title, icon, sections, words: words.filter(w => w.section === 1), activityCount: activities.filter(a => a.key !== "cards").length }))}>{children}</SiteShell></body>
     </html>
   );
 }
