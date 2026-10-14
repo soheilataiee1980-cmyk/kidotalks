@@ -105,7 +105,7 @@ try {
   await fresh.locator('.lesson-pagination button').first().click();await fresh.locator('.single-lesson[data-lesson="2"]').waitFor();
   assert.ok(await fresh.evaluate(()=>window.testCancels)>cancellations);
   await fresh.goBack();await fresh.locator('.single-lesson[data-lesson="3"]').waitFor();
-  await fresh.locator('.lesson-tabs button').nth(5).click();await fresh.getByText('این بخش در حال آماده‌سازی است.',{exact:true}).waitFor();assert.equal(await fresh.locator('.single-lesson').getAttribute('data-lesson'),'3');
+  await fresh.locator('.lesson-tabs button').nth(5).click();await fresh.locator('.single-lesson[data-lesson="6"]').waitFor();assert.equal(await fresh.locator('.teacher-box h2').textContent(),'اول بگو، بعد بنویس');
   await fresh.locator('.lesson-modes button').nth(1).click();await fresh.getByText('این بخش در حال آماده‌سازی است.',{exact:true}).waitFor();
   await fresh.locator('.lesson-modes button').nth(2).click();await fresh.getByText('این بخش در حال آماده‌سازی است.',{exact:true}).waitFor();
   await fresh.locator('.learning-menu summary').click();await fresh.locator('.menu-lessons button').first().click();await fresh.locator('.single-lesson[data-lesson="1"]').waitFor();
