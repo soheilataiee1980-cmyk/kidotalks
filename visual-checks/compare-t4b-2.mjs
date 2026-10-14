@@ -5,7 +5,7 @@ import { createRequire } from 'node:module';
 const runtime=createRequire('C:/Users/MSI/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/package.json');
 const {chromium}=runtime('playwright'), sharp=runtime('sharp');
 const base=process.env.VISUAL_BASE_URL||'http://localhost:3016';
-const directory='visual-checks/t4b-2';fs.mkdirSync(directory,{recursive:true});
+const directory=process.env.VISUAL_OUTPUT_DIR||'visual-checks/t4b-2';fs.mkdirSync(directory,{recursive:true});
 const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true,args:['--disable-gpu']});
 const report=[];
 try {
@@ -75,7 +75,7 @@ try {
   await fresh.locator('.lesson-tabs button').first().click();await fresh.locator('.single-lesson[data-lesson="1"]').waitFor();
   assert.ok(await fresh.evaluate(()=>window.testCancels)>cancellations);
   await fresh.goBack();await fresh.locator('.single-lesson[data-lesson="2"]').waitFor();
-  await fresh.locator('.lesson-tabs button').nth(2).click();await fresh.getByText('این بخش در حال آماده‌سازی است.',{exact:true}).waitFor();assert.equal(await fresh.locator('.single-lesson').getAttribute('data-lesson'),'2');
+  await fresh.locator('.lesson-tabs button').nth(3).click();await fresh.getByText('این بخش در حال آماده‌سازی است.',{exact:true}).waitFor();assert.equal(await fresh.locator('.single-lesson').getAttribute('data-lesson'),'2');
   await fresh.locator('.learning-menu summary').click();await fresh.locator('.menu-lessons button').first().click();await fresh.locator('.single-lesson[data-lesson="1"]').waitFor();
   await fresh.locator('.learning-menu summary').click();await fresh.locator('.menu-lessons button').nth(1).click();await fresh.locator('.single-lesson[data-lesson="2"]').waitFor();
   await fresh.locator('.learning-menu summary').click();await fresh.locator('.menu-unit').first().click();await fresh.locator('.single-lesson[data-lesson="1"]').waitFor();

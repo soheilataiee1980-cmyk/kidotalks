@@ -17,12 +17,13 @@ function readTab(): Tab {
 export default function SiteShell({ children, units, firstLessons }: { children: ReactNode; units: UnitSummary[]; firstLessons: FirstLessonUnit[] }) {
   const [today, setToday] = useState("");
   const [tab, setTab] = useState<Tab>("home");
-  const [lesson, setLesson] = useState<1 | 2>(1);
+  const [lesson, setLesson] = useState<1 | 2 | 3>(1);
   const [progress, setProgress] = useState(initialProgress);
   useEffect(() => {
     const sync = () => {
       const next = readTab();
-      setLesson(new URLSearchParams(window.location.hash.slice(1)).get("lesson") === "2" ? 2 : 1);
+      const requestedLesson = new URLSearchParams(window.location.hash.slice(1)).get("lesson");
+      setLesson(requestedLesson === "3" ? 3 : requestedLesson === "2" ? 2 : 1);
       setToday(new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Tehran" }).format(new Date()));
       const stored = readProgress();
       const unit = Number(new URLSearchParams(window.location.hash.slice(1)).get("u"));
