@@ -1,11 +1,11 @@
 "use client";
 import type { CourseUnit } from "../data/types";
+import MultipleChoiceExercise from "./multiple-choice-exercise";
 
-const cleanCourse = (text: string) => text.replace(/[’‘]/g, "'");
+const cleanCourse = (text: string) => text.replace(/['`]/g, "'");
 
-export default function ReadingLesson({ content, unitId, speak }: {
+export default function ReadingLesson({ content, speak }: {
   content: CourseUnit["reading"];
-  unitId: number;
   speak: (text: string) => void;
 }) {
   return <>
@@ -22,6 +22,6 @@ export default function ReadingLesson({ content, unitId, speak }: {
       <p className="reading en" lang="en">{cleanCourse(content.text)}</p>
       <button onClick={() => speak(cleanCourse(content.text))}>🔊 شنیدن متن</button>
     </article>
-    {unitId === 3 && <p>رنگ کن → ببر → تا کن → بچسبان. برای بریدن کاغذ از بزرگ‌تر کمک بگیر.</p>}
+    <MultipleChoiceExercise questions={content.questions} title="پرسش‌های متن" speak={speak} />
   </>;
 }

@@ -16,6 +16,13 @@ Every UI task is done only when it passes the visual fidelity rule.
 
   تمام زیرکارها باید جداگانه lint/build و آزمون رفتار مرتبط و تطبیق تصویری را بگذرانند. بانک‌ها و محتوای موجود دوباره تولید نشوند. اجرای بازی‌ها مربوط به T5 و اتصال/بازبینی ویدیوها مربوط به T8 باقی می‌ماند. فایل‌های ویدیوی محلی ذکرشده در T8 فعلاً در پروژه موجود نیستند.
 - [ ] T5 Exercise components: multiple choice, matching, memory, ordering, spelling. Stars and mistakes tracking (local state first).
+  - [x] T5a Multiple choice exercise component: reusable client component rendering `Question` items (scene, hint, options, answer), immediate feedback, progress, scoring stars, retry/reset, and honest unavailable state. Wired into ReadingLesson for all 15 units' reading questions; verified lint/build.
+  - [x] T5a bugfix: restored corrupted Persian labels/buttons in `reading-lesson.tsx` from `lessonHtml.teaching5` data, removed an invented unit 3 note, fixed fox/result text overlap and RTL spacing in `multiple-choice-exercise.tsx`, verified units 1, 3, 7, 13 and 15 plus light/dark and 390px.
+  - [ ] T5b Matching component: pair pictures and Persian meanings/words for every unit with valid bank or word data, retry/reset, scoring.
+  - [ ] T5c Memory game: card matching with reveal/reset and completion feedback.
+  - [ ] T5d Ordering/build-a-sentence component using shuffled tokens and left-to-right slots.
+  - [ ] T5e Spelling input component with answer checking and hint.
+  - [ ] T5f Stars persistence, mistakes tracking, review links using local browser state.
 - [ ] T6 Supabase: parent signup/login/logout/reset password, child profiles, progress saved in the database, RLS on all tables.
 - [ ] T7 Subscription gating: plans from SPEC.md, lock all lessons without an active subscription. Payment is demo-only until a gateway is approved.
 - [ ] T8 Videos: attach videos to lessons using a data file (videos are edited files named U<unit>-L<lesson>-...; unit 8 has temporary unedited placeholders that must be replaced before launch). Do not publish unedited videos.
