@@ -2,11 +2,12 @@
 import { useEffect, useState, type ReactNode } from "react";
 import BrandMark from "./brand-mark";
 import SiteFooter from "./site-footer";
+import ProfileAvatar from "./profile-avatar";
 import FirstLesson from "./first-lesson";
 import type { FirstLessonUnit } from "./first-lesson-types";
 import MatchingExercise, { type PracticeUnit } from "./matching-exercise";
 import { BooksContent, UnitsContent } from "./catalog-content";
-import { LearningContext, initialProgress, readProgress, progressKey, type Tab, type UnitSummary } from "./learning-state";
+import { LearningContext, initialProgress, readProgress, readProfileAvatar, progressKey, DEFAULT_PROFILE_AVATAR, type ProfileAvatarId, type Tab, type UnitSummary } from "./learning-state";
 const tabs = [
   ["home", "خانه", "🏠"], ["books", "کتاب‌ها", "📚"], ["lessons", "درس‌ها", "📖"],
   ["practice", "تمرین‌ها", "🎮"], ["videos", "ویدیوها", "🎬"], ["progress", "پیشرفت", "⭐"], ["parents", "والدین", "👨‍👩‍👧"],
@@ -20,6 +21,7 @@ export default function SiteShell({ children, units, practiceUnits, firstLessons
   const [tab, setTab] = useState<Tab>("home");
   const [lesson, setLesson] = useState<1 | 2 | 3 | 4 | 5 | 6 | 7>(1);
   const [progress, setProgress] = useState(initialProgress);
+  const [profileAvatar, setProfileAvatar] = useState<ProfileAvatarId>(DEFAULT_PROFILE_AVATAR);
   useEffect(() => {
     const sync = () => {
       const next = readTab();
@@ -27,6 +29,7 @@ export default function SiteShell({ children, units, practiceUnits, firstLessons
       setLesson(requestedLesson === "7" ? 7 : requestedLesson === "6" ? 6 : requestedLesson === "5" ? 5 : requestedLesson === "4" ? 4 : requestedLesson === "3" ? 3 : requestedLesson === "2" ? 2 : 1);
       setToday(new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Tehran" }).format(new Date()));
       const stored = readProgress();
+      setProfileAvatar(readProfileAvatar());
       const unit = Number(new URLSearchParams(window.location.hash.slice(1)).get("u"));
       if (Number.isInteger(unit) && unit >= 1 && unit <= 15) stored.unit = unit;
       setTab(next); setProgress({ ...stored });
@@ -42,14 +45,14 @@ export default function SiteShell({ children, units, practiceUnits, firstLessons
     window.location.hash = `tab=${next}${unit ? `&u=${unit}` : ""}`;
     window.scrollTo(0, 0);
   }
-  return <LearningContext.Provider value={{ units, progress, go, today }}><div id="app">
+  return <LearningContext.Provider value={{ units, progress, profileAvatar, go, today }}><div id="app">
     <nav>
       <button className="brand" onClick={() => go("home")} aria-label="Kidotalks — خانه"><BrandMark /></button>
       {tabs.map(([key, label, icon]) => {
         const active = tab === key || (key === "books" && (tab === "book" || tab === "units"));
         return <button key={key} className={key === "parents" ? `tab parent-tab ${active ? "on" : ""}` : `tab${active ? " on" : ""}`} onClick={() => go(key)}>{`${icon} ${label}`}</button>;
       })}
-      <button className="profile-badge" onClick={() => go("profiles")} aria-label="تغییر زبان‌آموز">🦊 زبان‌آموز من</button>
+      <button className="profile-badge" onClick={() => go("profiles")} aria-label="تغییر زبان‌آموز"><ProfileAvatar className="profile-badge-avatar" /> زبان‌آموز من</button>
     </nav>
     {tab === "lessons" ? <FirstLesson key={progress.unit} unit={firstLessons[progress.unit - 1]} units={firstLessons} lesson={lesson} /> : tab === "practice" ? <MatchingExercise key={progress.unit} units={practiceUnits} unit={practiceUnits[progress.unit - 1]} onUnitChange={unit => go("practice", unit)} /> : <><header />
     <main className="in" tabIndex={-1}>

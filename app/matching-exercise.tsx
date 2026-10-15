@@ -5,6 +5,7 @@ import type { CourseUnit, Word } from "../data/types";
 import { useLearning } from "./learning-state";
 import { useLessonAudio } from "./use-lesson-audio";
 import MemoryGame from "./memory-game";
+import ProfileAvatar from "./profile-avatar";
 
 export type PracticeUnit = Pick<CourseUnit, "id" | "title" | "icon" | "words">;
 const EMPTY_WORDS: Word[] = [];
@@ -22,10 +23,6 @@ function shuffle<T,>(items: T[]) {
 
 function stars(count: number) {
   return <span className="rating" role="img" aria-label={`${count} از ۵ ستاره`}>{Array.from({ length: 5 }, (_, i) => <span key={i} aria-hidden="true" className={i < count ? "earned" : "empty"}>★</span>)}</span>;
-}
-
-function Fox() {
-  return <svg viewBox="0 0 100 100" fill="none" stroke="#2B2B3A" strokeWidth="3" strokeLinejoin="round" aria-hidden="true"><path d="M16 42L24 8L48 28Z" fill="#FF9F43"/><path d="M84 42L76 8L52 28Z" fill="#FF9F43"/><path d="M12 46C12 28 30 24 50 24s38 4 38 22c0 22-18 38-38 38S12 68 12 46z" fill="#FF9F43"/><path d="M28 60c6 14 38 14 44 0c-8-5-14-7-22-7s-14 2-22 7z" fill="#fff"/><circle cx="35" cy="46" r="4.5" fill="#2B2B3A"/><circle cx="65" cy="46" r="4.5" fill="#2B2B3A"/><ellipse cx="50" cy="60" rx="5.5" ry="4" fill="#2B2B3A"/><path d="M42 70q8 6 16 0" strokeLinecap="round"/></svg>;
 }
 
 export default function MatchingExercise({ units, unit, onUnitChange }: { units: PracticeUnit[]; unit: PracticeUnit; onUnitChange: (id: number) => void }) {
@@ -101,6 +98,7 @@ export default function MatchingExercise({ units, unit, onUnitChange }: { units:
           const resultAccuracy = Math.round(((total - missed.size) / total) * 100);
           const resultStars = resultAccuracy === 100 ? 5 : resultAccuracy >= 80 ? 4 : resultAccuracy >= 60 ? 3 : resultAccuracy >= 40 ? 2 : 1;
           setBestStars((value) => Math.max(value, resultStars));
+          window.scrollTo(0, 0);
           setDone(true);
         }
       }, 600);
@@ -130,7 +128,7 @@ export default function MatchingExercise({ units, unit, onUnitChange }: { units:
     <header><button className="ghost" onClick={leave}>برگشت ›</button></header>
     <main className="in narrow" tabIndex={-1}>
       {done ? <>
-        <div className="mascot"><Fox /></div>
+        <ProfileAvatar className="big-avatar game-result-avatar" />
         <h1>یک قدم جلو رفتی!</h1>
         <div className="stars">{stars(scoreStars)}</div>
         <p role="status">{`${total - missed.size} پاسخ مستقل از ${total} سؤال · ${accuracy}٪`}</p>

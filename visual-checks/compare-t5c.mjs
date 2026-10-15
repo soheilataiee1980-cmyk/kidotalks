@@ -6,7 +6,7 @@ const require = (await import("node:module")).createRequire("C:/Users/MSI/.cache
 const { chromium } = require("playwright");
 const sharp = require("sharp");
 const base = process.env.VISUAL_BASE_URL || "http://127.0.0.1:3021";
-const directory = "visual-checks/t5c";
+const directory = process.env.VISUAL_OUTPUT_DIR || "visual-checks/t5c";
 const prototypePath = `file:///${path.resolve("legacy/index.html").replaceAll("\\", "/")}`;
 fs.mkdirSync(directory, { recursive: true });
 

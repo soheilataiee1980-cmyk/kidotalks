@@ -1,0 +1,130 @@
+{
+  "defaultAvatar": "🦊",
+  "selectedAvatar": "🐼",
+  "updatedAvatar": "🐸",
+  "memory": [
+    {
+      "unit": 1,
+      "width": 390,
+      "theme": "light",
+      "avatar": "🦊",
+      "stars": 5,
+      "screenshot": "visual-checks/t5c-avatar/memory-u1-390-light-default.png"
+    },
+    {
+      "unit": 1,
+      "width": 390,
+      "theme": "light",
+      "avatar": "🐼",
+      "stars": 5,
+      "screenshot": "visual-checks/t5c-avatar/memory-u1-390-light-panda.png"
+    },
+    {
+      "unit": 1,
+      "width": 390,
+      "theme": "light",
+      "avatar": "🐸",
+      "stars": 5,
+      "screenshot": "visual-checks/t5c-avatar/memory-u1-390-light-frog.png"
+    },
+    {
+      "unit": 7,
+      "width": 390,
+      "theme": "light",
+      "avatar": "🐸",
+      "stars": 5,
+      "screenshot": "visual-checks/t5c-avatar/memory-u7-390-light-frog.png"
+    },
+    {
+      "unit": 15,
+      "width": 390,
+      "theme": "light",
+      "avatar": "🐸",
+      "stars": 5,
+      "screenshot": "visual-checks/t5c-avatar/memory-u15-390-light-frog.png"
+    },
+    {
+      "unit": 1,
+      "width": 390,
+      "theme": "dark",
+      "avatar": "🐸",
+      "stars": 5,
+      "screenshot": "visual-checks/t5c-avatar/memory-u1-390-dark-frog.png"
+    },
+    {
+      "unit": 7,
+      "width": 390,
+      "theme": "dark",
+      "avatar": "🐸",
+      "stars": 5,
+      "screenshot": "visual-checks/t5c-avatar/memory-u7-390-dark-frog.png"
+    },
+    {
+      "unit": 15,
+      "width": 390,
+      "theme": "dark",
+      "avatar": "🐸",
+      "stars": 5,
+      "screenshot": "visual-checks/t5c-avatar/memory-u15-390-dark-frog.png"
+    },
+    {
+      "unit": 1,
+      "width": 1280,
+      "theme": "light",
+      "avatar": "🐸",
+      "stars": 5,
+      "screenshot": "visual-checks/t5c-avatar/memory-u1-1280-light-frog.png"
+    },
+    {
+      "unit": 7,
+      "width": 1280,
+      "theme": "light",
+      "avatar": "🐸",
+      "stars": 5,
+      "screenshot": "visual-checks/t5c-avatar/memory-u7-1280-light-frog.png"
+    },
+    {
+      "unit": 15,
+      "width": 1280,
+      "theme": "light",
+      "avatar": "🐸",
+      "stars": 5,
+      "screenshot": "visual-checks/t5c-avatar/memory-u15-1280-light-frog.png"
+    },
+    {
+      "unit": 1,
+      "width": 1280,
+      "theme": "dark",
+      "avatar": "🐸",
+      "stars": 5,
+      "screenshot": "visual-checks/t5c-avatar/memory-u1-1280-dark-frog.png"
+    },
+    {
+      "unit": 7,
+      "width": 1280,
+      "theme": "dark",
+      "avatar": "🐸",
+      "stars": 5,
+      "screenshot": "visual-checks/t5c-avatar/memory-u7-1280-dark-frog.png"
+    },
+    {
+      "unit": 15,
+      "width": 1280,
+      "theme": "dark",
+      "avatar": "🐸",
+      "stars": 5,
+      "screenshot": "visual-checks/t5c-avatar/memory-u15-1280-dark-frog.png"
+    },
+    {
+      "unit": 1,
+      "width": 390,
+      "theme": "light",
+      "avatar": "🐸",
+      "stars": 5,
+      "screenshot": null
+    }
+  ],
+  "t5a": "completed all reading questions; shared frog avatar shown with earned stars",
+  "t5b": "all unit 1 matching rounds completed; shared frog avatar shown with earned stars",
+  "errors": []
+}

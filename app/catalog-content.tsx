@@ -1,6 +1,7 @@
 "use client";
 import type { CSSProperties } from "react";
 import BrandMark from "./brand-mark";
+import ProfileAvatar from "./profile-avatar";
 import HomeArt from "./home-art";
 import { useLearning } from "./learning-state";
 export function BookCard() {
@@ -11,7 +12,7 @@ export function HomeContent() {
   const { go, progress, today } = useLearning();
   const done = progress.completedDay === today;
   return <>
-    <section className="hero"><HomeArt /><div className="hero-brand"><BrandMark /></div><h1>سلام زبان‌آموز من 🦊</h1><div className="row"><button className="cta" onClick={() => go("lessons", progress.unit)}>ادامهٔ یادگیری</button><button onClick={() => go("practice")}>{done ? "مرور امروز" : "تمرین امروز"}</button></div><p>آخرین مسیر: <span className="en">{`Unit ${progress.unit}`}</span>{` · ${done ? "تمرین امروز انجام شده ✓" : "۶ سؤال کوتاه برای امروز"}`}</p></section>
+    <section className="hero"><HomeArt /><div className="hero-brand"><BrandMark /></div><h1>سلام زبان‌آموز من <ProfileAvatar className="inline-profile-avatar" /></h1><div className="row"><button className="cta" onClick={() => go("lessons", progress.unit)}>ادامهٔ یادگیری</button><button onClick={() => go("practice")}>{done ? "مرور امروز" : "تمرین امروز"}</button></div><p>آخرین مسیر: <span className="en">{`Unit ${progress.unit}`}</span>{` · ${done ? "تمرین امروز انجام شده ✓" : "۶ سؤال کوتاه برای امروز"}`}</p></section>
     <div className="plans"><button className="plan" onClick={() => go("practice")}><b>🌱 مرور اشتباه‌های من</b><p>{`${progress.mistakesToReview} نکته برای مرور`}</p></button><button className="plan" onClick={() => go("progress")}><b>⭐ کارنامهٔ من</b></button><button className="plan" onClick={() => go("parents")}><b>👨‍👩‍👧 همراهِ یادگیری</b></button></div>
     <h2 className="sec">کتاب‌های من</h2><BookCard />
   </>;

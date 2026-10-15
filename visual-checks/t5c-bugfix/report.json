@@ -1,0 +1,167 @@
+{
+  "sourceContent": [
+    {
+      "unit": 1,
+      "words": 10,
+      "cards": 8,
+      "missingArtwork": []
+    },
+    {
+      "unit": 2,
+      "words": 10,
+      "cards": 8,
+      "missingArtwork": []
+    },
+    {
+      "unit": 3,
+      "words": 10,
+      "cards": 8,
+      "missingArtwork": []
+    },
+    {
+      "unit": 4,
+      "words": 10,
+      "cards": 8,
+      "missingArtwork": []
+    },
+    {
+      "unit": 5,
+      "words": 10,
+      "cards": 8,
+      "missingArtwork": []
+    },
+    {
+      "unit": 6,
+      "words": 9,
+      "cards": 8,
+      "missingArtwork": []
+    },
+    {
+      "unit": 7,
+      "words": 10,
+      "cards": 8,
+      "missingArtwork": []
+    },
+    {
+      "unit": 8,
+      "words": 11,
+      "cards": 8,
+      "missingArtwork": []
+    },
+    {
+      "unit": 9,
+      "words": 11,
+      "cards": 8,
+      "missingArtwork": []
+    },
+    {
+      "unit": 10,
+      "words": 11,
+      "cards": 8,
+      "missingArtwork": []
+    },
+    {
+      "unit": 11,
+      "words": 11,
+      "cards": 8,
+      "missingArtwork": []
+    },
+    {
+      "unit": 12,
+      "words": 11,
+      "cards": 8,
+      "missingArtwork": []
+    },
+    {
+      "unit": 13,
+      "words": 16,
+      "cards": 8,
+      "missingArtwork": []
+    },
+    {
+      "unit": 14,
+      "words": 10,
+      "cards": 8,
+      "missingArtwork": []
+    },
+    {
+      "unit": 15,
+      "words": 11,
+      "cards": 8,
+      "missingArtwork": []
+    }
+  ],
+  "visual": [
+    {
+      "width": 390,
+      "theme": "light",
+      "differingPixels": 151149,
+      "totalPixels": 401136,
+      "maxChannelDelta": 209
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "differingPixels": 151149,
+      "totalPixels": 401136,
+      "maxChannelDelta": 209
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "differingPixels": 89248,
+      "totalPixels": 408000,
+      "maxChannelDelta": 208
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "differingPixels": 89248,
+      "totalPixels": 408000,
+      "maxChannelDelta": 208
+    }
+  ],
+  "interaction": [
+    {
+      "unit": 1,
+      "pairs": 4,
+      "correctPairs": 4,
+      "incorrectPairReset": true,
+      "stars": 5,
+      "completed": true,
+      "restart": "8 closed cards, counter reset"
+    },
+    {
+      "unit": 7,
+      "pairs": 4,
+      "correctPairs": 4,
+      "incorrectPairReset": true,
+      "stars": 5,
+      "completed": true,
+      "restart": "8 closed cards, counter reset"
+    },
+    {
+      "unit": 13,
+      "pairs": 4,
+      "correctPairs": 4,
+      "incorrectPairReset": true,
+      "stars": 5,
+      "completed": true,
+      "restart": "8 closed cards, counter reset"
+    },
+    {
+      "unit": 15,
+      "pairs": 4,
+      "correctPairs": 4,
+      "incorrectPairReset": true,
+      "stars": 5,
+      "completed": true,
+      "restart": "8 closed cards, counter reset"
+    }
+  ],
+  "regression": [
+    "T5b: matching tile, incorrect feedback, and correct locked pair passed at unit 15.",
+    "T5a: unit 15 reading choice rejects a wrong answer and accepts the source answer."
+  ],
+  "errors": []
+}

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import type { Question } from "../data/types";
+import ProfileAvatar from "./profile-avatar";
 
 const star = (n: number) => {
   const value = Math.max(0, Math.min(5, Number(n) || 0));
@@ -77,6 +78,7 @@ export default function MultipleChoiceExercise({
           const accuracy = Math.round(((total - wrongCount) / total) * 100);
           const stars = accuracy >= 100 ? 5 : accuracy >= 80 ? 4 : accuracy >= 60 ? 3 : accuracy >= 40 ? 2 : 1;
           setBestStars((old) => Math.max(old, stars));
+          window.scrollTo(0, 0);
           setDone(true);
         }
       }, 900);
@@ -112,7 +114,7 @@ export default function MultipleChoiceExercise({
       <section className="teacher-box" aria-label={title}>
         <span className="teacher-label">تمرین پرسش‌ها</span>
         <h2>{title}</h2>
-        <div className="mascot" aria-hidden="true" style={{ lineHeight: 1, margin: "0 0 10px", display: "block" }}>🦊</div>
+        <ProfileAvatar className="big-avatar game-result-avatar" />
         <h1 style={{ lineHeight: 1.35, margin: "0 0 12px" }}>یک قدم جلو رفتی!</h1>
         <div className="stars" style={{ justifyContent: "center", margin: "0 0 12px" }}>
           <span className="rating" role="img" aria-label={`${stars} از ۵ ستاره`}>

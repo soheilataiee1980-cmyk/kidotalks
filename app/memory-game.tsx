@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import type { Word } from "../data/types";
 import { useLearning } from "./learning-state";
 import { useLessonAudio } from "./use-lesson-audio";
+import ProfileAvatar from "./profile-avatar";
 import type { PracticeUnit } from "./matching-exercise";
 
 type Face = "visual" | "word";
@@ -22,10 +23,6 @@ function picture(word: Word) {
 
 function stars(count: number) {
   return <span className="rating" role="img" aria-label={`${count} از ۵ ستاره`}>{Array.from({ length: 5 }, (_, index) => <span key={index} aria-hidden="true" className={index < count ? "earned" : "empty"}>★</span>)}</span>;
-}
-
-function Fox() {
-  return <svg viewBox="0 0 100 100" fill="none" stroke="#2B2B3A" strokeWidth="3" strokeLinejoin="round" aria-hidden="true"><path d="M16 42L24 8L48 28Z" fill="#FF9F43"/><path d="M84 42L76 8L52 28Z" fill="#FF9F43"/><path d="M12 46C12 28 30 24 50 24s38 4 38 22c0 22-18 38-38 38S12 68 12 46z" fill="#FF9F43"/><path d="M28 60c6 14 38 14 44 0c-8-5-14-7-22-7s-14 2-22 7z" fill="#fff"/><circle cx="35" cy="46" r="4.5" fill="#2B2B3A"/><circle cx="65" cy="46" r="4.5" fill="#2B2B3A"/><ellipse cx="50" cy="60" rx="5.5" ry="4" fill="#2B2B3A"/><path d="M42 70q8 6 16 0" strokeLinecap="round"/></svg>;
 }
 
 export default function MemoryGame({ units, unit, onUnitChange, onBack }: { units: PracticeUnit[]; unit: PracticeUnit; onUnitChange: (id: number) => void; onBack: () => void }) {
@@ -99,6 +96,7 @@ export default function MemoryGame({ units, unit, onUnitChange, onBack }: { unit
       if (nextFound === pairCount) {
         timeout.current = window.setTimeout(() => {
           setBestStars(value => Math.max(value, 5));
+          window.scrollTo(0, 0);
           setComplete(true);
         }, 1000);
       }
@@ -133,7 +131,7 @@ export default function MemoryGame({ units, unit, onUnitChange, onBack }: { unit
     <header><button className="ghost" onClick={leave} type="button">برگشت ›</button></header>
     <main className="in narrow" tabIndex={-1}>
       {complete ? <>
-        <div className="mascot"><Fox /></div>
+        <ProfileAvatar className="big-avatar game-result-avatar" />
         <h1>جفت‌ها را پیدا کردی!</h1>
         <div className="stars">{stars(5)}</div>
         <p>بازی حافظه برای تمرین است؛ پیدا کردن کارت نادیده جریمه ندارد.</p>
