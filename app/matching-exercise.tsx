@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { CourseUnit, Word } from "../data/types";
 import { useLearning } from "./learning-state";
 import { useLessonAudio } from "./use-lesson-audio";
+import MemoryGame from "./memory-game";
 
 export type PracticeUnit = Pick<CourseUnit, "id" | "title" | "icon" | "words">;
 const EMPTY_WORDS: Word[] = [];
@@ -31,6 +32,7 @@ export default function MatchingExercise({ units, unit, onUnitChange }: { units:
   const { go } = useLearning();
   const audio = useLessonAudio(1);
   const [playing, setPlaying] = useState(false);
+  const [activity, setActivity] = useState<"matching" | "memory" | null>(null);
   const [round, setRound] = useState(0);
   const [rounds, setRounds] = useState<Word[][]>([]);
   const [selected, setSelected] = useState<string | null>(null);
@@ -50,6 +52,7 @@ export default function MatchingExercise({ units, unit, onUnitChange }: { units:
   useEffect(() => () => { if (timer.current !== null) window.clearTimeout(timer.current); window.speechSynthesis?.cancel(); }, []);
 
   function begin() {
+    setActivity("matching");
     const chunks: Word[][] = [];
     for (let i = 0; i < unit.words.length; i += 4) chunks.push(unit.words.slice(i, i + 4));
     setRounds(chunks);
@@ -66,6 +69,7 @@ export default function MatchingExercise({ units, unit, onUnitChange }: { units:
     if (timer.current !== null) window.clearTimeout(timer.current);
     audio.stop();
     setPlaying(false);
+    setActivity(null);
     setDone(false);
     setStatus("");
   }
@@ -115,8 +119,11 @@ export default function MatchingExercise({ units, unit, onUnitChange }: { units:
 
   if (!total) return <><header /><main className="in" tabIndex={-1}>{unitSwitch}<p role="status">برای این یونیت واژه‌ای برای این بازی موجود نیست.</p>{toolbar}</main></>;
 
+  if (activity === "memory") return <MemoryGame units={units} unit={unit} onUnitChange={onUnitChange} onBack={() => setActivity(null)} />;
+
   if (!playing) return <><header /><main className="in" tabIndex={-1}>{unitSwitch}<div className="activity-grid">
     <button className="activity-tile" onClick={begin}><span aria-hidden="true">🔗</span><b>وصل کن</b><small>تصویر و کلمه را وصل کن.</small></button>
+    <button className="activity-tile" onClick={() => setActivity("memory")}><span aria-hidden="true">🧠</span><b>بازی حافظه</b><small>جفتِ تصویر و کلمه را پیدا کن.</small></button>
   </div>{toolbar}</main></>;
 
   return <>
