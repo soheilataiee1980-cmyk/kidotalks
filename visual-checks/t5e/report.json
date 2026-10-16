@@ -1,0 +1,85 @@
+{
+  "supportedUnits": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "unsupportedUnits": [
+    1,
+    2,
+    3
+  ],
+  "interactions": [
+    "practice entry: spelling is available for every source-backed unit 4–15 and absent for units 1–3 like the prototype",
+    "unit 13: image hint, pronunciation/repeat/speed controls, incorrect feedback, normalized correct answer",
+    "unit 15: image hint, pronunciation/repeat/speed controls, incorrect feedback, normalized correct answer",
+    "unit 7: complete all words, first-attempt mistake scoring, dynamic saved avatar, and restart verified"
+  ],
+  "regression": [
+    "Passed: visual-checks/test-t5d.mjs covers T5a reading, T5b matching, T5c memory dimensions/avatar, and T5d ordering."
+  ],
+  "visual": [
+    {
+      "width": 390,
+      "theme": "light",
+      "react": {
+        "width": 366,
+        "height": 877
+      },
+      "prototype": {
+        "width": 366,
+        "height": 877
+      },
+      "note": "Paired screenshots saved for visual comparison; React capture isolates the game body while prototype includes its frame."
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "react": {
+        "width": 366,
+        "height": 877
+      },
+      "prototype": {
+        "width": 366,
+        "height": 877
+      },
+      "note": "Paired screenshots saved for visual comparison; React capture isolates the game body while prototype includes its frame."
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "react": {
+        "width": 480,
+        "height": 865
+      },
+      "prototype": {
+        "width": 480,
+        "height": 865
+      },
+      "note": "Paired screenshots saved for visual comparison; React capture isolates the game body while prototype includes its frame."
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "react": {
+        "width": 480,
+        "height": 865
+      },
+      "prototype": {
+        "width": 480,
+        "height": 865
+      },
+      "note": "Paired screenshots saved for visual comparison; React capture isolates the game body while prototype includes its frame."
+    }
+  ],
+  "errors": []
+}

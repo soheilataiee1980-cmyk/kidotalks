@@ -5,9 +5,12 @@ import type { CourseUnit, Word } from "../data/types";
 import { useLearning } from "./learning-state";
 import { useLessonAudio } from "./use-lesson-audio";
 import MemoryGame from "./memory-game";
+import OrderingExercise from "./ordering-exercise";
+import SpellingExercise from "./spelling-exercise";
 import ProfileAvatar from "./profile-avatar";
 
-export type PracticeUnit = Pick<CourseUnit, "id" | "title" | "icon" | "words">;
+export type OrderingSentence = { en: string; fa?: string; imageWord?: string };
+export type PracticeUnit = Pick<CourseUnit, "id" | "title" | "icon" | "words"> & { orderingSentences: OrderingSentence[] | null };
 const EMPTY_WORDS: Word[] = [];
 
 function picture(word: Word) {
@@ -29,7 +32,7 @@ export default function MatchingExercise({ units, unit, onUnitChange }: { units:
   const { go } = useLearning();
   const audio = useLessonAudio(1);
   const [playing, setPlaying] = useState(false);
-  const [activity, setActivity] = useState<"matching" | "memory" | null>(null);
+  const [activity, setActivity] = useState<"matching" | "memory" | "ordering" | "spelling" | null>(null);
   const [round, setRound] = useState(0);
   const [rounds, setRounds] = useState<Word[][]>([]);
   const [selected, setSelected] = useState<string | null>(null);
@@ -118,10 +121,14 @@ export default function MatchingExercise({ units, unit, onUnitChange }: { units:
   if (!total) return <><header /><main className="in" tabIndex={-1}>{unitSwitch}<p role="status">برای این یونیت واژه‌ای برای این بازی موجود نیست.</p>{toolbar}</main></>;
 
   if (activity === "memory") return <MemoryGame units={units} unit={unit} onUnitChange={onUnitChange} onBack={() => setActivity(null)} />;
+  if (activity === "ordering" && unit.orderingSentences) return <OrderingExercise units={units} unit={unit} onUnitChange={onUnitChange} onBack={() => setActivity(null)} />;
+  if (activity === "spelling" && unit.id >= 4) return <SpellingExercise unit={unit} onBack={() => setActivity(null)} />;
 
   if (!playing) return <><header /><main className="in" tabIndex={-1}>{unitSwitch}<div className="activity-grid">
     <button className="activity-tile" onClick={begin}><span aria-hidden="true">🔗</span><b>وصل کن</b><small>تصویر و کلمه را وصل کن.</small></button>
     <button className="activity-tile" onClick={() => setActivity("memory")}><span aria-hidden="true">🧠</span><b>بازی حافظه</b><small>جفتِ تصویر و کلمه را پیدا کن.</small></button>
+    {unit.orderingSentences ? <button className="activity-tile" onClick={() => setActivity("ordering")}><span aria-hidden="true">🧩</span><b>جمله بساز</b><small>واژه‌ها را مرتب کن و جمله را از چپ به راست بساز.</small></button> : <div className="activity-tile unavailable-activity" aria-disabled="true"><span aria-hidden="true">🧩</span><b>جمله بساز</b><small>این نوع تمرین در نمونهٔ این یونیت وجود ندارد.</small></div>}
+    {unit.id >= 4 && <button className="activity-tile" onClick={() => setActivity("spelling")}><span aria-hidden="true">🔠</span><b>املای واژه‌ها</b><small>تصویر را ببین، تلفظ را گوش کن و کلمه را بنویس.</small></button>}
   </div>{toolbar}</main></>;
 
   return <>
