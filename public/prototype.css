@@ -225,6 +225,6 @@ body[data-theme] button:not(:disabled):active{transform:translateY(2px) scale(.9
 .hero-brand .kidotalk-lockup svg{width:min(390px,75vw);height:auto;display:block}
 @media(max-width:640px){.brand .kidotalk-lockup svg{width:142px}.hero-brand .kidotalk-lockup svg{width:min(290px,76vw)}}
 .teacher-memory{width:100%;min-width:0}.teacher-memory .local-memory{width:100%;min-width:0;min-height:0;box-sizing:border-box;flex:0 0 auto;padding:10px}
-.profile-badge-avatar{width:34px;height:34px;border-radius:11px;font-size:23px;margin-inline-end:4px;vertical-align:middle}
-.inline-profile-avatar{display:inline-grid;width:32px;height:32px;border-radius:10px;font-size:22px;margin-inline-start:5px;vertical-align:middle}
+.profile-badge-avatar{display:inline;width:auto;height:auto;border-radius:0;background:none;font-size:inherit;line-height:inherit;margin:0;vertical-align:baseline}
+.inline-profile-avatar{display:inline;width:auto;height:auto;border-radius:0;background:none;font-size:inherit;line-height:inherit;margin:0;vertical-align:baseline}
 .game-result-avatar{margin:0 auto 12px}

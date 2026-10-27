@@ -1,0 +1,218 @@
+[
+  {
+    "width": 390,
+    "region": "nav",
+    "prototypeSize": {
+      "format": "raw",
+      "width": 390,
+      "height": 240,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 374400
+    },
+    "newSize": {
+      "format": "raw",
+      "width": 390,
+      "height": 240,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 374400
+    },
+    "differentPixels": 0,
+    "totalPixels": 93600,
+    "maxDelta": 0
+  },
+  {
+    "width": 390,
+    "region": "hero",
+    "prototypeSize": {
+      "format": "raw",
+      "width": 390,
+      "height": 330,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 514800
+    },
+    "newSize": {
+      "format": "raw",
+      "width": 390,
+      "height": 330,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 514800
+    },
+    "differentPixels": 0,
+    "totalPixels": 128700,
+    "maxDelta": 0
+  },
+  {
+    "width": 390,
+    "region": "plans",
+    "prototypeSize": {
+      "format": "raw",
+      "width": 390,
+      "height": 315,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 491400
+    },
+    "newSize": {
+      "format": "raw",
+      "width": 390,
+      "height": 315,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 491400
+    },
+    "differentPixels": 0,
+    "totalPixels": 122850,
+    "maxDelta": 0
+  },
+  {
+    "width": 390,
+    "region": "book",
+    "prototypeSize": {
+      "format": "raw",
+      "width": 390,
+      "height": 150,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 234000
+    },
+    "newSize": {
+      "format": "raw",
+      "width": 390,
+      "height": 150,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 234000
+    },
+    "differentPixels": 0,
+    "totalPixels": 58500,
+    "maxDelta": 0
+  },
+  {
+    "width": 1280,
+    "region": "nav",
+    "prototypeSize": {
+      "format": "raw",
+      "width": 1280,
+      "height": 170,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 870400
+    },
+    "newSize": {
+      "format": "raw",
+      "width": 1280,
+      "height": 170,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 870400
+    },
+    "differentPixels": 0,
+    "totalPixels": 217600,
+    "maxDelta": 0
+  },
+  {
+    "width": 1280,
+    "region": "hero",
+    "prototypeSize": {
+      "format": "raw",
+      "width": 1280,
+      "height": 410,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 2099200
+    },
+    "newSize": {
+      "format": "raw",
+      "width": 1280,
+      "height": 410,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 2099200
+    },
+    "differentPixels": 0,
+    "totalPixels": 524800,
+    "maxDelta": 0
+  },
+  {
+    "width": 1280,
+    "region": "plans",
+    "prototypeSize": {
+      "format": "raw",
+      "width": 1280,
+      "height": 135,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 691200
+    },
+    "newSize": {
+      "format": "raw",
+      "width": 1280,
+      "height": 135,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 691200
+    },
+    "differentPixels": 0,
+    "totalPixels": 172800,
+    "maxDelta": 0
+  },
+  {
+    "width": 1280,
+    "region": "book",
+    "prototypeSize": {
+      "format": "raw",
+      "width": 1280,
+      "height": 160,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 819200
+    },
+    "newSize": {
+      "format": "raw",
+      "width": 1280,
+      "height": 160,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 819200
+    },
+    "differentPixels": 0,
+    "totalPixels": 204800,
+    "maxDelta": 0
+  }
+]

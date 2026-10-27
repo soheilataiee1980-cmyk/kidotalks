@@ -16,6 +16,7 @@ import { courseUnits } from "../data";
 
 
 import "./footer.css";
+import "./auth.css";
 
 const legacyUnit1Order = [
   ["pen", "It's a pen."], ["ruler", "It's a ruler."], ["eraser", "It's an eraser."],

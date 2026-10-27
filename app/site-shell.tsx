@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState, type ReactNode } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import BrandMark from "./brand-mark";
 import SiteFooter from "./site-footer";
 import ProfileAvatar from "./profile-avatar";
@@ -17,6 +18,8 @@ function readTab(): Tab {
   return value === "profiles" || value === "book" || value === "units" || tabs.some(([key]) => key === value) ? value as Tab : "home";
 }
 export default function SiteShell({ children, units, practiceUnits, firstLessons }: { children: ReactNode; units: UnitSummary[]; practiceUnits: PracticeUnit[]; firstLessons: FirstLessonUnit[] }) {
+  const router = useRouter();
+  const pathname = usePathname();
   const [today, setToday] = useState("");
   const [tab, setTab] = useState<Tab>("home");
   const [lesson, setLesson] = useState<1 | 2 | 3 | 4 | 5 | 6 | 7>(1);
@@ -36,21 +39,26 @@ export default function SiteShell({ children, units, practiceUnits, firstLessons
       document.body.dataset.theme = next === "book" || next === "units" ? "books" : next;
       try { localStorage.setItem(progressKey, JSON.stringify(stored)); } catch { /* Browsing still works without storage. */ }
     };
+    const onHashChange = () => { window.scrollTo({ top: 0 }); sync(); };
     sync();
-    window.addEventListener("hashchange", sync);
+    window.addEventListener("hashchange", onHashChange);
     window.addEventListener("storage", sync);
-    return () => { window.removeEventListener("hashchange", sync); window.removeEventListener("storage", sync); };
-  }, []);
+    return () => { window.removeEventListener("hashchange", onHashChange); window.removeEventListener("storage", sync); };
+  }, [pathname]);
   function go(next: Tab, unit?: number) {
-    window.location.hash = `tab=${next}${unit ? `&u=${unit}` : ""}`;
+    const hash = `tab=${next}${unit ? `&u=${unit}` : ""}`;
+    // Auth pages share this shell; send their navigation back to the home route.
+    if (pathname !== "/") { router.push(`/#${hash}`); return; }
+    window.location.hash = hash;
     window.scrollTo(0, 0);
   }
   return <LearningContext.Provider value={{ units, progress, profileAvatar, go, today }}><div id="app">
-    <nav>
+    <nav aria-label="ناوبری اصلی">
       <button className="brand" onClick={() => go("home")} aria-label="Kidotalks — خانه"><BrandMark /></button>
       {tabs.map(([key, label, icon]) => {
         const active = tab === key || (key === "books" && (tab === "book" || tab === "units"));
-        return <button key={key} className={key === "parents" ? `tab parent-tab ${active ? "on" : ""}` : `tab${active ? " on" : ""}`} onClick={() => go(key)}>{`${icon} ${label}`}</button>;
+        if (key === "parents") return <button key={key} className={`tab parent-tab${active ? " on" : ""}`} onClick={() => router.push("/login")}>{`${icon} ${label}`}</button>;
+        return <button key={key} className={`tab${active ? " on" : ""}`} aria-current={active ? "page" : undefined} onClick={() => go(key)}>{`${icon} ${label}`}</button>;
       })}
       <button className="profile-badge" onClick={() => go("profiles")} aria-label="تغییر زبان‌آموز"><ProfileAvatar className="profile-badge-avatar" /> زبان‌آموز من</button>
     </nav>
